@@ -9,6 +9,9 @@ public abstract class PowerUp : MonoBehaviour
     [SerializeField]
     private Transform m_SpawnPoint;
 
+    [SerializeField]
+    private bool m_AutomaticFiring;
+
     public int Ammunition 
     {
         get => m_Ammunition;
