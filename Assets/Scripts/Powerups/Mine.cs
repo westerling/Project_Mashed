@@ -1,30 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Mine : MonoBehaviour
+public class Mine : Ammunition
 {
-    [SerializeField]
-    private Rigidbody m_RigidBody;
-
-    private float m_Radius = 5f;
-    private float m_Power = 10f;
+    private float m_Radius = 10f;
+    private float m_Power = 100000f;
     private float m_SafeTimer = 2f;
     private bool m_SafeMode = true;
 
-    private void Update()
+    public void ActivateMine()
     {
-        if (!m_SafeMode)
-        {
-            return;
-        }
+        StartCoroutine(SetMineSafety());
+    }
 
-        m_SafeTimer -= Time.deltaTime;
-
-        if (m_SafeTimer <= 0.0f)
-        {
-            m_SafeMode = false;
-        }
+    private IEnumerator SetMineSafety()
+    {
+        m_SafeMode = true;
+        yield return new WaitForSeconds(m_SafeTimer);
+        m_SafeMode = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,11 +36,12 @@ public class Mine : MonoBehaviour
 
             if (rigidbody != null)
             {
-                rigidbody.AddExplosionForce(m_Power, explosionPos, m_Radius, 3f);
+                Debug.Log("Pang");
+                rigidbody.AddExplosionForce(m_Power, explosionPos, m_Radius, 10000f);
             }
         }
-        Debug.Log("Destroy");
+        
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -26,17 +26,18 @@ public class Targeter : MonoBehaviour
         set => m_Active = value;
     }
 
-    void Update()
+    public GameObject Target 
     {
-        if (!Active)
-        {
-            return;
-        }
-
-        SetTargeter();
+        get => m_Target; 
+        set => m_Target = value; 
     }
 
-    private void SetTargeter()
+    void Update()
+    {
+        SetVisualTargeter();
+    }
+
+    private void SetVisualTargeter()
     {
         m_LineRenderer.SetPosition(0, m_StartPos.position);
 
@@ -48,7 +49,7 @@ public class Targeter : MonoBehaviour
                 {
                     Debug.Log("hit car");
                     m_LineRenderer.SetPosition(1, hit.point);
-                    m_Target = car.gameObject;
+                    Target = car.gameObject;
                     m_LineRenderer.material = m_LineRenderer.materials[(int)m_Materials.Target];
                     return;
                 }

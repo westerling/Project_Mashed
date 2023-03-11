@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : Ammunition
 {
     [SerializeField]
     private Rigidbody m_RigidBody;
@@ -16,12 +16,13 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem m_Particles;
-    private void Start()
+    
+    public void ActivateWeapon()
     {
         m_RigidBody.velocity = transform.forward * m_LaunchForce;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         var explosionPos = transform.position;
         var colliders = Physics.OverlapSphere(explosionPos, m_Radius);
@@ -38,6 +39,6 @@ public class Projectile : MonoBehaviour
 
         m_Particles.Play();
 
-        Destroy(gameObject);
+        Deactivate();
     }
 }

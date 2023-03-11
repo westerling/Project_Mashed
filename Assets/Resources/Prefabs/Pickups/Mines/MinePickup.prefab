@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3407186216785832286}
   - component: {fileID: 7089061965808048722}
   m_Layer: 0
-  m_Name: Pickup
+  m_Name: MinePickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0487f60eef664f90d28064b052d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Powerup: {fileID: 7407857273821068625, guid: 3bac3bb1f98833c44b2d736215ac457c, type: 3}
+  m_Powerup: {fileID: 2105683641490772130, guid: ef0178ff1634d224baa4e4a20126171b, type: 3}
   m_PickupGraphics: {fileID: 3407186216812497855}
 --- !u!65 &7089061965808048722
 BoxCollider:
@@ -56,9 +56,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3407186216785832287}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3407186216812497855
@@ -122,7 +130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ffaea8bc40fdf848a850030c61bac77, type: 2}
+  - {fileID: 2100000, guid: aa66b72022f866b4f85e8afee4264ce0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

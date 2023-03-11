@@ -161,5 +161,4 @@ public static class Globals
         }
         return 6;
     }
-
 }

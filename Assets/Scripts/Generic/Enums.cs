@@ -30,3 +30,25 @@ public enum PointsGiven
     One,
     Two
 }
+
+public enum WeaponType
+{
+    Missile = 0,
+    Mine = 1,
+    Drums = 2
+}
+
+public enum PickupType
+{
+    Missiles = 0,
+    Mines = 1,
+    Drums = 2,
+    Oil = 3,
+    Rifle = 4
+}
+
+public enum ParticleType
+{
+    Explosion,
+    Fire
+}

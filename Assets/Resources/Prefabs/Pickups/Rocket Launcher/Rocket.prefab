@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6189293846232892082}
   - component: {fileID: 6189293846232892092}
-  - component: {fileID: 6189293846232892083}
   - component: {fileID: 5673214738226318171}
+  - component: {fileID: 2108843672360698727}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -62,23 +62,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6189293846232892083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6189293846232892081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6858d0a36b0efa4a8b8609e70ad3aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RigidBody: {fileID: 6189293846232892092}
-  m_LaunchForce: 50
-  m_Radius: 10
-  m_Power: 100000
-  m_Particles: {fileID: 1536674021314261967, guid: 4032f768e68073e48ad56374ce95b3fb, type: 3}
 --- !u!65 &5673214738226318171
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -100,6 +83,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2108843672360698727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189293846232892081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e082a5249b45994b9534f0eb66036df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WeaponType: 0
+  m_RigidBody: {fileID: 6189293846232892092}
+  m_Radius: 1
+  m_Power: 1
+  m_Speed: 15
+  m_RotateSpeed: 95
+  _maxDistancePredict: 100
+  _minDistancePredict: 5
+  _maxTimePrediction: 5
+  _deviationAmount: 50
+  _deviationSpeed: 2
 --- !u!1001 &8147988102914450288
 PrefabInstance:
   m_ObjectHideFlags: 0

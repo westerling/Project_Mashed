@@ -1,39 +1,40 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PickupSpawn : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] m_PossiblePowerups;
-
-    [SerializeField]
-    private GameObject m_Graphics;
-
-    private GameObject m_Powerup;
-
-    public GameObject[] PossiblePowerups
-    {
-        get => m_PossiblePowerups;
-        set => m_PossiblePowerups = value;
-    }
-
     private void Start()
     {
         SpawnPickup();
     }
 
-    private void SpawnPickup()
+    public void SpawnPickupDelayed(int delay)
     {
-        var go = Instantiate(PossiblePowerups[Random.Range(0, m_PossiblePowerups.Length)]);
-        if (go.TryGetComponent(out Pickup pickup))
-        {
-
-        }
+        StartCoroutine(SpawnerDelay(delay));
     }
 
-    private IEnumerator Invisible()
+    private IEnumerator SpawnerDelay(int delay)
     {
-        yield return new WaitForSeconds(16);
+        yield return new WaitForSeconds(delay);
+
         SpawnPickup();
+    }
+
+    private void SpawnPickup()
+    {
+        var pooledObject = PickupPool.Current.GetPooledObject();
+
+        if (pooledObject != null)
+        {
+            pooledObject.transform.position = transform.position;
+            pooledObject.transform.rotation = transform.rotation;
+            pooledObject.SetActive(true);
+
+            if (pooledObject.TryGetComponent(out Pickup pickup))
+            {
+                pickup.Spawner = this;
+            }
+        }
     }
 }
