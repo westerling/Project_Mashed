@@ -1,35 +1,14 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
-    private WeaponType m_WeaponType;
-
-    [SerializeField]
-    private int m_Ammunition;
-
-    [SerializeField]
     private Transform m_SpawnPoint;
 
-    [SerializeField]
+    private int m_Ammunition;
     private bool m_AutomaticFiring;
 
-    [SerializeField]
-    private bool m_UseTargeter;
-
-    [SerializeField]
-    private List<GameObject> m_EnableOnFire;
-
-    private Targeter m_Targeter;
-
-    private void OnEnable()
-    {
-        if (TryGetComponent(out Targeter targeter))
-        {
-            m_Targeter = targeter;
-        }
-    }
+    private WeaponType m_WeaponType;
 
     public int Ammunition
     {
@@ -37,20 +16,23 @@ public abstract class Weapon : MonoBehaviour
         set => m_Ammunition = value;
     }
 
-    public Transform SpawnPoint
+    protected Transform SpawnPoint
     {
         get => m_SpawnPoint;
-    }
-
-    public bool UseTargeter
-    {
-        get => m_UseTargeter;
     }
 
     public WeaponType WeaponType
     {
         get => m_WeaponType;
+        protected set => m_WeaponType = value;
     }
+    public bool AutomaticFiring
+    {
+        get => m_AutomaticFiring;
+        protected set => m_AutomaticFiring = value;
+    }
+
+    public abstract void SetInitialValues();
 
     public abstract void Fire();
 }

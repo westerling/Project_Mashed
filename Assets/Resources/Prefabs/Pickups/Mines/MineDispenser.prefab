@@ -114,9 +114,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2383167380499460914}
-  - component: {fileID: 5588798430773904143}
+  - component: {fileID: 1410588033341232776}
   m_Layer: 0
-  m_Name: Mines
+  m_Name: MineDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5588798430773904143
+--- !u!114 &1410588033341232776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,14 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105683641490772130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6aa8569ce2052f45be86725dd44ad78, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8db7168d0b9464f84ae1be21e9b080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WeaponType: 1
-  m_Ammunition: 2
   m_SpawnPoint: {fileID: 5505690446025481644}
-  m_AutomaticFiring: 0
-  m_LazerSight: 0
 --- !u!1 &4634578388644121654
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4634578388644121654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.016656697, y: 3.3622491, z: -0.18325043}
+  m_LocalPosition: {x: -0.016656697, y: 3.3622491, z: -2.86}
   m_LocalScale: {x: 1, y: 10, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -38,6 +38,7 @@ public class HomingMissile : Ammunition
 
     private void FixedUpdate()
     {
+        Debug.Log("Åker...");
         if (m_Target == null)
         {
             UseDumMissile();    
@@ -49,7 +50,7 @@ public class HomingMissile : Ammunition
 
     private void UseDumMissile()
     {
-
+        m_RigidBody.velocity = transform.forward * m_Speed;
     }
 
     private void UseHoming()
@@ -91,6 +92,8 @@ public class HomingMissile : Ammunition
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Pang");
+
         var explosionPos = transform.position;
         var colliders = Physics.OverlapSphere(explosionPos, m_Radius);
 

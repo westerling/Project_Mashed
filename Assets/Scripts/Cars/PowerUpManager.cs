@@ -4,9 +4,6 @@ using UnityEngine;
 public class PowerUpManager : MonoBehaviour
 {
     [SerializeField]
-    private Targeter m_Targeter;
-
-    [SerializeField]
     private Car m_Car;
 
     [SerializeField]
@@ -14,6 +11,19 @@ public class PowerUpManager : MonoBehaviour
 
     private InputManager m_InputManager;
     private GameObject m_PowerUp;
+
+    private void Awake()
+    {
+        foreach (var weaponGameObject in m_Weapons)
+        {
+            weaponGameObject.SetActive(false);
+
+            if (weaponGameObject.TryGetComponent(out Weapon weapon))
+            {
+                weapon.SetInitialValues();
+            }
+        }
+    }
 
     private void Start()
     {
@@ -64,6 +74,7 @@ public class PowerUpManager : MonoBehaviour
             if (powerUp.Ammunition <= 0)
             {
                 m_PowerUp.SetActive(false);
+                m_PowerUp = null;
             }
         }
     }

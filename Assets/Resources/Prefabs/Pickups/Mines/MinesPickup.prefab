@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3407186216785832286}
   - component: {fileID: 7089061965808048722}
   m_Layer: 0
-  m_Name: MinePickup
+  m_Name: MinesPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0487f60eef664f90d28064b052d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Powerup: {fileID: 2105683641490772130, guid: ef0178ff1634d224baa4e4a20126171b, type: 3}
+  m_WeaponType: 1
   m_PickupGraphics: {fileID: 3407186216812497855}
 --- !u!65 &7089061965808048722
 BoxCollider:
