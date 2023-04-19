@@ -7,10 +7,7 @@ public class Car : MonoBehaviour
     private Rigidbody m_Rigidbody;
 
     [SerializeField]
-    private GameObject m_RoofRack;
-
-    [SerializeField]
-    private GameObject m_WarningSprite;
+    private Transform m_IconTransform;
 
     [SerializeField]
     private CarConfig m_Config;
@@ -26,14 +23,9 @@ public class Car : MonoBehaviour
         get => m_Config; 
     }
 
-    public GameObject RoofRack 
+    public Transform IconTransform 
     { 
-        get => m_RoofRack; 
-    }
-    
-    public GameObject WarningSprite 
-    { 
-        get => m_WarningSprite; 
+        get => m_IconTransform; 
     }
 
     public event Action<bool> StatusUpdated;

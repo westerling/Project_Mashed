@@ -1,5 +1,11 @@
 public class MineDispenser : Weapon
 {
+    public override void SetInitialValues()
+    {
+        AutomaticFiring = false;
+        WeaponType = WeaponType.Mine;
+    }
+
     public override void Fire()
     {
         var pooledObject = AmmunitionPool.Current.GetPooledObjectOfType(WeaponType.Mine);
@@ -19,10 +25,8 @@ public class MineDispenser : Weapon
         Ammunition--;
     }
 
-    public override void SetInitialValues()
+    public override void OnPickup()
     {
         Ammunition = 2;
-        AutomaticFiring = false;
-        WeaponType = WeaponType.Mine;
     }
 }

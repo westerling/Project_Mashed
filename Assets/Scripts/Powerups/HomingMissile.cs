@@ -3,7 +3,11 @@ using UnityEngine;
 public class HomingMissile : Ammunition
 {
     [Header("REFERENCES")]
-    [SerializeField] private Rigidbody m_RigidBody;
+    [SerializeField]
+    private Rigidbody m_RigidBody;
+
+    [SerializeField]
+    private Transform m_ParentTransform;
 
     [Header("Blast")]
     [SerializeField]
@@ -38,7 +42,6 @@ public class HomingMissile : Ammunition
 
     private void FixedUpdate()
     {
-        Debug.Log("Åker...");
         if (m_Target == null)
         {
             UseDumMissile();    
@@ -92,10 +95,16 @@ public class HomingMissile : Ammunition
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Pang");
-
         var explosionPos = transform.position;
         var colliders = Physics.OverlapSphere(explosionPos, m_Radius);
+
+        var pooledObject = FxPool.Current.GetPooledObjectOfType(ParticleType.Explosion_m);
+
+        if (pooledObject != null)
+        {
+            pooledObject.transform.position = explosionPos;
+            pooledObject.SetActive(true);
+        }
 
         foreach (var hit in colliders)
         {
@@ -108,6 +117,8 @@ public class HomingMissile : Ammunition
         }
 
         Deactivate();
+
+        transform.SetParent(m_ParentTransform);
     }
 
     public void SetTarget(Transform target)

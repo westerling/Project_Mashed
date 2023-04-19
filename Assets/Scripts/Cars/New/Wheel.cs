@@ -16,6 +16,9 @@ public struct Wheel
     [SerializeField]
 	private Vector3 m_TrailOffset;
 
+	[SerializeField]
+	private bool m_Driving;
+
 	private float m_CurrentForwardSleep;
 	private float m_CurrentSidewaysSleep;
 	private WheelHit m_Hit;
@@ -53,6 +56,11 @@ public struct Wheel
 	{
 		get => m_CurrentForwardSleep; 
 		set => m_CurrentForwardSleep = value; 
+	}
+    
+	public bool Driving 
+	{
+		get => m_Driving; 
 	}
 
     Vector3 HitPoint;

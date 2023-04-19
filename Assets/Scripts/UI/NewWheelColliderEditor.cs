@@ -3,20 +3,20 @@ using UnityEditor;
 [CustomEditor(typeof(NewWheelCollider)), CanEditMultipleObjects]
 public class NewWheelColliderEditor : Editor
 {
-	public override void OnInspectorGUI()
-	{
-		EditorGUI.BeginChangeCheck();
+	//public override void OnInspectorGUI()
+	//{
+	//	EditorGUI.BeginChangeCheck();
 
-		base.OnInspectorGUI();
+	//	base.OnInspectorGUI();
 
-		if (EditorGUI.EndChangeCheck())
-		{
-			for (int i = 0; i < targets.Length; i++)
-			{
-				(targets[i] as NewWheelCollider).UpdateConfig();
-			}
-		}
-	}
+	//	if (EditorGUI.EndChangeCheck())
+	//	{
+	//		for (int i = 0; i < targets.Length; i++)
+	//		{
+	//			(targets[i] as NewWheelCollider).UpdateConfig();
+	//		}
+	//	}
+	//}
 
 	void OnEnable()
 	{

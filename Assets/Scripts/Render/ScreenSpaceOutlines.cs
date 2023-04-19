@@ -56,9 +56,10 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         private readonly List<ShaderTagId> shaderTagIdList;
         private readonly Material normalsMaterial;
         private readonly Material occludersMaterial;
-
+        [System.Obsolete]
         private readonly RenderTargetHandle normals;
 
+        [System.Obsolete]
         public ViewSpaceNormalsTexturePass(RenderPassEvent renderPassEvent, LayerMask layerMask, LayerMask occluderLayerMask, ViewSpaceNormalsTextureSettings settings) {
             this.renderPassEvent = renderPassEvent;
             this.normalsTextureSettings = settings;
@@ -79,6 +80,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             occludersMaterial.SetColor("_Color,", normalsTextureSettings.backgroundColor);
         }
 
+        [System.Obsolete]
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor) {
             RenderTextureDescriptor normalsTextureDescriptor = cameraTextureDescriptor;
             normalsTextureDescriptor.colorFormat = normalsTextureSettings.colorFormat;
@@ -115,6 +117,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             CommandBufferPool.Release(cmd);
         }
 
+        [System.Obsolete]
         public override void OnCameraCleanup(CommandBuffer cmd) {
             cmd.ReleaseTemporaryRT(normals.id);
         }
@@ -146,6 +149,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             screenSpaceOutlineMaterial.SetFloat("_SteepAngleMultiplier", settings.steepAngleMultiplier);
         }
 
+        [System.Obsolete]
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData) {
             RenderTextureDescriptor temporaryTargetDescriptor = renderingData.cameraData.cameraTargetDescriptor;
             temporaryTargetDescriptor.depthBufferBits = 0;
@@ -155,6 +159,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             cameraColorTarget = renderingData.cameraData.renderer.cameraColorTarget;
         }
 
+        [System.Obsolete]
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) {
             if (!screenSpaceOutlineMaterial)
                 return;
@@ -185,7 +190,8 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
 
     private ViewSpaceNormalsTexturePass viewSpaceNormalsTexturePass;
     private ScreenSpaceOutlinePass screenSpaceOutlinePass;
-    
+
+    [System.Obsolete]
     public override void Create() {
         if (renderPassEvent < RenderPassEvent.BeforeRenderingPrePasses)
             renderPassEvent = RenderPassEvent.BeforeRenderingPrePasses;

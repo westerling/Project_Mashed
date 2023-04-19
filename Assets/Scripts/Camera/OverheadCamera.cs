@@ -109,26 +109,26 @@ public class OverheadCamera : MonoBehaviour
 
     private void GetLeader()
 	{
-		m_Leader = Race.Current.Leader;
+		m_Leader = RaceManager.Current.Leader;
 	}
 
 	private void GetCenterPosition()
     {
-		if (m_Leader == null || Race.Current.ActiveCars.Count <= 0)
+		if (m_Leader == null || RaceManager.Current.ActiveCars.Count <= 0)
 		{
 			return;
 		}
 
-		if (Race.Current.ActiveCars.Count <= 1)
+		if (RaceManager.Current.ActiveCars.Count <= 1)
         {
 			m_TargetPosition =  m_Leader.transform.position;
         }
 
-		var bounds = new Bounds(Race.Current.ActiveCars[0].transform.position, Vector3.zero);
+		var bounds = new Bounds(RaceManager.Current.ActiveCars[0].transform.position, Vector3.zero);
 
-        for (var i = 0; i < Race.Current.ActiveCars.Count; i++)
+        for (var i = 0; i < RaceManager.Current.ActiveCars.Count; i++)
         {
-			bounds.Encapsulate(Race.Current.ActiveCars[i].transform.position);
+			bounds.Encapsulate(RaceManager.Current.ActiveCars[i].transform.position);
         }
 
 		m_TargetPosition = bounds.center;
@@ -136,6 +136,6 @@ public class OverheadCamera : MonoBehaviour
 
 	private void CheckWinner()
     {
-		m_GameActive = Race.Current.ActiveCars.Count > 1;
+		m_GameActive = RaceManager.Current.ActiveCars.Count > 1;
 	}
 }

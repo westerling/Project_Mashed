@@ -84,7 +84,6 @@ public class CarController : MonoBehaviour
 		      
 		AddWheelsToList();
 
-        //Set drive wheel.
         switch (m_Car.Config.DriveType)
         {
             case DriveType.AWD:
@@ -211,8 +210,6 @@ public class CarController : MonoBehaviour
 
 	#region
 
-
-
 	private void UpdateRpmAndTorqueLogic()
 	{
 		if (m_InCutOff)
@@ -228,14 +225,16 @@ public class CarController : MonoBehaviour
 			}
 		}
 
-		if (!Race.Current.RaceIsActive)
+		if (!RaceManager.Current.RaceIsActive)
 		{
 			if (m_InCutOff)
             {
 				return;
 			}
 
-			var rpm = m_CurrentAccelerationInput > 0 ? m_Car.Config.MaxRPM : m_Car.Config.MinRPM;
+			SetStaticMode();
+
+            var rpm = m_CurrentAccelerationInput > 0 ? m_Car.Config.MaxRPM : m_Car.Config.MinRPM;
 			var speed = m_CurrentAccelerationInput > 0 ? m_Car.Config.RpmEngineToRpmWheelsLerpSpeed : m_Car.Config.RpmEngineToRpmWheelsLerpSpeed * 0.2f;
 			
 			m_EngineRPM = Mathf.Lerp(m_EngineRPM, rpm, speed * Time.fixedDeltaTime);
@@ -252,9 +251,17 @@ public class CarController : MonoBehaviour
 		//Get drive wheel with MinRPM.
 		var minRPM = 0f;
 
-		for (var i = m_FirstDriveWheel + 1; i <= m_LastDriveWheel; i++)
+        //for (var i = m_FirstDriveWheel + 1; i <= m_LastDriveWheel; i++)
+        //{
+        //    minRPM += m_Wheels[i].WheelCollider.rpm;
+        //}
+
+        foreach (var wheel in m_Wheels)
 		{
-			minRPM += m_Wheels[i].WheelCollider.rpm;
+			if (wheel.Driving)
+			{
+                minRPM += wheel.WheelCollider.rpm;
+            }
 		}
 
 		minRPM /= m_LastDriveWheel - m_FirstDriveWheel + 1;
@@ -292,18 +299,34 @@ public class CarController : MonoBehaviour
 				//If the rpm of the wheel is less than the max rpm engine * current ratio, then apply the current torque for wheel, else not torque for wheel.
 				var maxWheelRPM = AllGearsRatio[GetCurrentGear()] * m_EngineRPM;
 				
-				for (var i = m_FirstDriveWheel; i <= m_LastDriveWheel; i++)
+				//for (var i = m_FirstDriveWheel; i <= m_LastDriveWheel; i++)
+				//{
+				//	if (m_Wheels[i].WheelCollider.rpm <= maxWheelRPM)
+				//	{
+				//		m_Wheels[i].WheelCollider.motorTorque = motorTorque;
+				//	}
+				//	else
+				//	{
+				//		m_Wheels[i].WheelCollider.motorTorque = 0;
+				//	}
+				//}
+
+				foreach (var wheel in m_Wheels)
 				{
-					if (m_Wheels[i].WheelCollider.rpm <= maxWheelRPM)
+					if (wheel.Driving)
 					{
-						m_Wheels[i].WheelCollider.motorTorque = motorTorque;
-					}
-					else
-					{
-						m_Wheels[i].WheelCollider.motorTorque = 0;
-					}
-				}
-			}
+                        if (wheel.WheelCollider.rpm <= maxWheelRPM)
+                        {
+                            wheel.WheelCollider.motorTorque = motorTorque;
+                        }
+                        else
+                        {
+                            wheel.WheelCollider.motorTorque = 0;
+                        }
+                    }
+                    
+                }
+            }
 			else
 			{
 				m_CurrentBrake = m_Car.Config.MaxBrakeTorque;
@@ -365,6 +388,17 @@ public class CarController : MonoBehaviour
 			m_CurrentGear = 0;
         }
     }
+
+	private void SetStaticMode()
+	{
+		ApplyHandbrake();
+		m_Car.Rigidbody.velocity = Vector3.zero;
+
+        foreach (var wheel in m_Wheels)
+		{
+            wheel.WheelCollider.motorTorque = 0f;
+        }
+	}
 
 	public int GetCurrentCarDirection()
 	{

@@ -16,7 +16,7 @@ public class PickupPool : ObjectPool
         return PooledObjects.First(x => !(x.activeInHierarchy) && x.GetComponent<Ammunition>().WeaponType == weaponType);
     }
 
-    public override GameObject GetPooledObject()
+    public GameObject GetPooledObject()
     {
         var tempList = new List<GameObject>();
 

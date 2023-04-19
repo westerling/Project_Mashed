@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &802460654
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 802460655}
-  m_Layer: 0
-  m_Name: FX_Pool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &802460655
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802460654}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1079183817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,7 +186,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7539559564999441193, guid: b5131c4a8ba0aa649ba03f3b85210dc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1610439754}
   m_SourcePrefab: {fileID: 100100000, guid: b5131c4a8ba0aa649ba03f3b85210dc8, type: 3}
 --- !u!1 &1079183818 stripped
 GameObject:
@@ -486,54 +458,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3958139036747255674, guid: 1cba95d0467826745a245d986bdf1440, type: 3}
   m_PrefabInstance: {fileID: 1439122315}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1568330460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1568330462}
-  - component: {fileID: 1568330461}
-  m_Layer: 0
-  m_Name: PickupPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1568330461
+--- !u!114 &1610439754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568330460}
+  m_GameObject: {fileID: 1079183818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78be98d67616db840a754d97163f3bde, type: 3}
+  m_Script: {fileID: 11500000, guid: dcdd7f3bd07842641ba1dc47560b95c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObjectsToPool:
-  - {fileID: 3407186216785832287, guid: 44b0891a199a4a846bfbf5fccc4a92b2, type: 3}
-  - {fileID: 3407186216785832287, guid: eb6ff1e83f8749849a180074ac1e3adc, type: 3}
-  m_AmountToPool: 10
---- !u!4 &1568330462
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568330460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_UIType: 2
 --- !u!114 &1617269941 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5655805288631535037, guid: 1cba95d0467826745a245d986bdf1440, type: 3}
@@ -550,53 +487,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4575415389298815999, guid: 5c63ff84669edad47af0895f2df14910, type: 3}
   m_PrefabInstance: {fileID: 4575415390720369425}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1979623407
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1979623409}
-  - component: {fileID: 1979623408}
-  m_Layer: 0
-  m_Name: AmmunitionPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1979623408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979623407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e137a6b13ba204bb3b4fd6f2230f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ObjectsToPool:
-  - {fileID: 6356807886941059418, guid: ec2b7c8e9f72dd940b8e5f6691a2dfe1, type: 3}
-  m_AmountToPool: 20
---- !u!4 &1979623409
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979623407}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &948194824080524348
 PrefabInstance:
   m_ObjectHideFlags: 0

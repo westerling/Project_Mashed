@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -40,6 +41,11 @@ public class PowerUpManager : MonoBehaviour
 
             m_PowerUp = weaponToActivate;
             m_PowerUp.SetActive(true);
+            
+            if (m_PowerUp.TryGetComponent(out Weapon weapon))
+            {
+                weapon.OnPickup();
+            }
 
             return true;
         }
@@ -57,8 +63,11 @@ public class PowerUpManager : MonoBehaviour
 
         if (m_PowerUp.TryGetComponent(out Weapon powerUp))
         {
-            powerUp.Fire();
-            CheckAmmunition();
+            if (powerUp.Ammunition > 0)
+            {
+                powerUp.Fire();
+                CheckAmmunition();
+            }
         }
     }
 
@@ -73,10 +82,16 @@ public class PowerUpManager : MonoBehaviour
         {
             if (powerUp.Ammunition <= 0)
             {
-                m_PowerUp.SetActive(false);
-                m_PowerUp = null;
+                StartCoroutine(DisablePowerUp());
             }
         }
+    }
+
+    private IEnumerator DisablePowerUp()
+    {
+        yield return new WaitForSeconds(3f);
+        m_PowerUp.SetActive(false);
+        m_PowerUp = null;
     }
 
     private void OnDestroy()

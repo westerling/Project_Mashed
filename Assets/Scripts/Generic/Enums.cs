@@ -35,7 +35,11 @@ public enum WeaponType
 {
     Missile = 0,
     Mine = 1,
-    Drums = 2
+    DrumBomb = 2,
+    Rifle = 3,
+    Shotgun = 4,
+    Oil = 5,
+    Boost = 6
 }
 
 public enum PickupType
@@ -49,6 +53,23 @@ public enum PickupType
 
 public enum ParticleType
 {
-    Explosion,
-    Fire
+    Explosion_s = 0,
+    Explosion_m = 1,
+    Explosion_l = 2,
+    Fire = 3,
+    Smoke = 4
+}
+
+public enum MenuType
+{
+    MainMenu = 0,
+    RaceMenu = 1
+}
+
+public enum UIType
+{
+    WarningIcon = 0,
+    HelicopterIcon = 1,
+    RaceGUI = 2,
+    LoadingScreen = 3
 }

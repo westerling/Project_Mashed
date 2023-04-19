@@ -51,6 +51,11 @@ MonoBehaviour:
   m_Tracks:
   - Ice
   - Parking
+  m_Pools:
+  - {fileID: 4119954390909980722, guid: 84e2bf15a8f36984a96d54906cbcc277, type: 3}
+  - {fileID: 5278005928889250945, guid: 7920c8b88b931774fb9f13d7c177a475, type: 3}
+  - {fileID: 5971137259921094747, guid: b0e8d72a6a10bbb408a75acb4065b126, type: 3}
+  - {fileID: 2055859846658225227, guid: 1cc6dbcbc51fc2443bbede64ddf32bdb, type: 3}
   m_LoadingScreen: {fileID: 0}
   m_ProgressBar: {fileID: 0}
 --- !u!114 &189493245281870250

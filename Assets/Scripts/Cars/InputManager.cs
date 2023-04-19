@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     public event Action<float> Steer;
     public event Action<float> HandBrake;
     public event Action Shoot;
+    public event Action Pause;
 
     [SerializeField]
     private PlayerInput m_Controls;
@@ -21,6 +22,7 @@ public class InputManager : MonoBehaviour
         m_Controls.actions["Shoot"].performed += ShootPerformed;
         m_Controls.actions["HandBrake"].performed += HandBrakePerformed;
         m_Controls.actions["HandBrake"].canceled += HandBrakePerformed;
+        m_Controls.actions["Pause"].performed += PausePerformed;
     }
 
     private void HandBrakePerformed(InputAction.CallbackContext obj)
@@ -43,6 +45,11 @@ public class InputManager : MonoBehaviour
         Acceleration?.Invoke(obj.ReadValue<float>());
     }
 
+    private void PausePerformed(InputAction.CallbackContext obj)
+    {
+        Pause?.Invoke();
+    }
+
     private void OnDestroy()
     {
         m_Controls.actions["Acceleration"].performed -= AccelerationPerformed;
@@ -52,5 +59,6 @@ public class InputManager : MonoBehaviour
         m_Controls.actions["Shoot"].performed -= ShootPerformed;
         m_Controls.actions["HandBrake"].performed -= HandBrakePerformed;
         m_Controls.actions["HandBrake"].canceled -= HandBrakePerformed;
+        m_Controls.actions["Pause"].performed -= PausePerformed;
     }
 }

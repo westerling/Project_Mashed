@@ -14,17 +14,4 @@ public class AmmunitionPool : ObjectPool
     {
         return PooledObjects.First(x => !(x.activeInHierarchy) && x.GetComponent<Ammunition>().WeaponType == weaponType);
     }
-
-    public override GameObject GetPooledObject()
-    {
-        for (int i = 0; i < PooledObjects.Count; i++)
-        {
-            if (!PooledObjects[i].activeInHierarchy)
-            {
-                return PooledObjects[i];
-            }
-        }
-
-        return null;
-    }
 }

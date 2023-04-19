@@ -1,26 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ObjectPool : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> m_ObjectsToPool;
-
-    [SerializeField]
-    private int m_AmountToPool;
+    private List<PooledObject> m_ObjectsToPool;
 
     private List<GameObject> m_PooledObjects;
-
-    public int AmountToPool
-    {
-        get => m_AmountToPool;
-    }
-
-    public List<GameObject> ObjectsToPool
-    {
-        get => m_ObjectsToPool;
-    }
 
     public List<GameObject> PooledObjects
     {
@@ -31,14 +17,8 @@ public abstract class ObjectPool : MonoBehaviour
     private void Awake()
     {
         CreateInstance();
-    }
-
-    private void Start()
-    {
         InstantiateObjects();
     }
-
-    public abstract GameObject GetPooledObject();
 
     public abstract void CreateInstance();
 
@@ -47,11 +27,11 @@ public abstract class ObjectPool : MonoBehaviour
         PooledObjects = new List<GameObject>();
         GameObject temp;
 
-        foreach (var objectToPool in ObjectsToPool)
+        foreach (var objectToPool in m_ObjectsToPool)
         {
-            for (int i = 0; i < AmountToPool; i++)
+            for (int i = 0; i < objectToPool.Amount; i++)
             {
-                temp = Instantiate(objectToPool, transform);
+                temp = Instantiate(objectToPool.ObjectToPool, transform);
                 temp.SetActive(false);
                 PooledObjects.Add(temp);
             }

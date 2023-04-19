@@ -35,4 +35,6 @@ public abstract class Weapon : MonoBehaviour
     public abstract void SetInitialValues();
 
     public abstract void Fire();
+
+    public abstract void OnPickup();
 }

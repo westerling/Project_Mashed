@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1440850794099891290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3926563882446903567}
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3926563882446903567}
   - component: {fileID: 1089708226150047551}
+  - component: {fileID: 3955924661057246482}
   m_Layer: 0
   m_Name: CarWarning
   m_TagString: Untagged
@@ -130,3 +131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 6388233372966548000, guid: 4608d3ee882d5b44eb96501e66c0c5b4, type: 3}
+--- !u!114 &3955924661057246482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641760307776281532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdd7f3bd07842641ba1dc47560b95c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIType: 0

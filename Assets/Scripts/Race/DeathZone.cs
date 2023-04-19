@@ -11,6 +11,6 @@ public class DeathZone : MonoBehaviour
             return;
         }
 
-        Race.Current.DeactivateCar(car);
+        RaceManager.Current.DeactivateCar(car);
     }
 }

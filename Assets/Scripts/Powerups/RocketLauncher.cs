@@ -15,18 +15,16 @@ public class RocketLauncher : Weapon
 
     public override void SetInitialValues()
     {
-        Ammunition = 1;
         AutomaticFiring = false;
         WeaponType = WeaponType.Missile;
     }
 
     public override void Fire()
     {
-        Debug.Log("Smäller av:");
         m_Rocket.transform.position = SpawnPoint.position;
         m_Rocket.transform.rotation = SpawnPoint.rotation;
         m_Rocket.SetActive(true);
-
+        m_Rocket.transform.SetParent(null);
         if (m_Targeter.Target != null)
         {
             if (m_Rocket.TryGetComponent(out HomingMissile missile))
@@ -36,5 +34,10 @@ public class RocketLauncher : Weapon
         }
 
         Ammunition--;
+    }
+
+    public override void OnPickup()
+    {
+        Ammunition = 2;
     }
 }

@@ -13,5 +13,6 @@ public abstract class Ammunition : MonoBehaviour
     protected void Deactivate()
     {
         gameObject.SetActive(false);
+        gameObject.transform.SetParent(AmmunitionPool.Current.transform);
     }
 }

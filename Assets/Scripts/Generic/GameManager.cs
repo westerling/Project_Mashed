@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Current;
-    public event Action PlayerJoined;
-    public event Action PlayerLeft;
+    public event Action<Player> PlayerJoined;
+    public event Action<Player> PlayerLeft;
 
     [Header("Gameplay")]
     [SerializeField]
@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private string[] m_Tracks;
+
+    [SerializeField]
+    private GameObject[] m_Pools;
 
     [Header("UI")]
     [SerializeField]
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
     private float m_TotalSceneProgress;
     private List<AsyncOperation> m_ScenesLoading = new List<AsyncOperation>();
     private int m_CurrentLoadedScene = 0;
+
     public List<Player> ActivePlayers 
     {
         get => m_ActivePlayers; 
@@ -44,8 +48,20 @@ public class GameManager : MonoBehaviour
         set => m_Car = value; 
     }
 
-    public string[] Tracks { get => m_Tracks; }
-    public GameObject[] Cars { get => m_Cars; }
+    public string[] Tracks 
+    {
+        get => m_Tracks; 
+    }
+
+    public GameObject[] Cars 
+    {
+        get => m_Cars; 
+    }
+    
+    public GameObject[] Pools 
+    {
+        get => m_Pools; 
+    }
 
     private void Awake()
     {
@@ -61,7 +77,7 @@ public class GameManager : MonoBehaviour
             if (!ActivePlayers.Contains(player))
             {
                 ActivePlayers.Add(player);
-                PlayerJoined?.Invoke();
+                PlayerJoined?.Invoke(player);
             }
         }
     }
@@ -73,7 +89,7 @@ public class GameManager : MonoBehaviour
             if (ActivePlayers.Contains(player))
             {
                 ActivePlayers.Remove(player);
-                PlayerLeft?.Invoke();
+                PlayerLeft?.Invoke(player);
             }
         }
     }
