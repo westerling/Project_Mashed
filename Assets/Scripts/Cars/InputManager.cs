@@ -4,61 +4,61 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public event Action<float> Acceleration;
-    public event Action<float> Steer;
-    public event Action<float> HandBrake;
-    public event Action Shoot;
-    public event Action Pause;
+    public event Action<float> RightTrigger;
+    public event Action<float> Joystick;
+    public event Action<float> BButton;
+    public event Action AButton;
+    public event Action StartButton;
 
     [SerializeField]
     private PlayerInput m_Controls;
 
     private void Start()
     {
-        m_Controls.actions["Acceleration"].performed += AccelerationPerformed;
-        m_Controls.actions["Acceleration"].canceled += AccelerationPerformed;
-        m_Controls.actions["Steer"].performed += SteerPerformed;
-        m_Controls.actions["Steer"].canceled += SteerPerformed;
-        m_Controls.actions["Shoot"].performed += ShootPerformed;
-        m_Controls.actions["HandBrake"].performed += HandBrakePerformed;
-        m_Controls.actions["HandBrake"].canceled += HandBrakePerformed;
-        m_Controls.actions["Pause"].performed += PausePerformed;
+        m_Controls.actions["RightTrigger"].performed += RightTriggerPerformed;
+        m_Controls.actions["RightTrigger"].canceled += RightTriggerPerformed;
+        m_Controls.actions["Joystick"].performed += JoystickPerformed;
+        m_Controls.actions["Joystick"].canceled += JoystickPerformed;
+        m_Controls.actions["A"].performed += APerformed;
+        m_Controls.actions["B"].performed += BPerformed;
+        m_Controls.actions["B"].canceled += BPerformed;
+        m_Controls.actions["Start"].performed += StartPerformed;
     }
 
-    private void HandBrakePerformed(InputAction.CallbackContext obj)
+    private void BPerformed(InputAction.CallbackContext obj)
     {
-        HandBrake?.Invoke(obj.ReadValue<float>());
+        BButton?.Invoke(obj.ReadValue<float>());
     }
 
-    private void ShootPerformed(InputAction.CallbackContext obj)
+    private void APerformed(InputAction.CallbackContext obj)
     {
-        Shoot?.Invoke();
+        AButton?.Invoke();
     }
 
-    private void SteerPerformed(InputAction.CallbackContext obj)
+    private void JoystickPerformed(InputAction.CallbackContext obj)
     {
-        Steer?.Invoke(obj.ReadValue<float>());
+        Joystick?.Invoke(obj.ReadValue<float>());
     }
 
-    private void AccelerationPerformed(InputAction.CallbackContext obj)
+    private void RightTriggerPerformed(InputAction.CallbackContext obj)
     {
-        Acceleration?.Invoke(obj.ReadValue<float>());
+        RightTrigger?.Invoke(obj.ReadValue<float>());
     }
 
-    private void PausePerformed(InputAction.CallbackContext obj)
+    private void StartPerformed(InputAction.CallbackContext obj)
     {
-        Pause?.Invoke();
+        StartButton?.Invoke();
     }
 
     private void OnDestroy()
     {
-        m_Controls.actions["Acceleration"].performed -= AccelerationPerformed;
-        m_Controls.actions["Acceleration"].canceled -= AccelerationPerformed;
-        m_Controls.actions["Steer"].performed -= SteerPerformed;
-        m_Controls.actions["Steer"].canceled -= SteerPerformed;
-        m_Controls.actions["Shoot"].performed -= ShootPerformed;
-        m_Controls.actions["HandBrake"].performed -= HandBrakePerformed;
-        m_Controls.actions["HandBrake"].canceled -= HandBrakePerformed;
-        m_Controls.actions["Pause"].performed -= PausePerformed;
+        m_Controls.actions["RightTrigger"].performed -= RightTriggerPerformed;
+        m_Controls.actions["RightTrigger"].canceled -= RightTriggerPerformed;
+        m_Controls.actions["Joystick"].performed -= JoystickPerformed;
+        m_Controls.actions["Joystick"].canceled -= JoystickPerformed;
+        m_Controls.actions["A"].performed -= APerformed;
+        m_Controls.actions["B"].performed -= BPerformed;
+        m_Controls.actions["B"].canceled -= BPerformed;
+        m_Controls.actions["Start"].performed -= StartPerformed;
     }
 }

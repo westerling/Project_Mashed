@@ -16,6 +16,7 @@ public class BarrelLauncher : Weapon
 
     public override void Fire()
     {
+#pragma warning disable CS0162 // Unreachable code detected
         for (var i = m_Barrels.Count - 1; i >= 0; i--)
         {
             if (m_Barrels[i].TryGetComponent(out Joint joint))
@@ -34,6 +35,7 @@ public class BarrelLauncher : Weapon
             m_Barrels.RemoveAt(i);
             break;
         }
+#pragma warning restore CS0162 // Unreachable code detected
     }
 
     private void SetupBarrels()

@@ -6,7 +6,7 @@
             "id": "12a32a69-f116-442a-875a-5b63452bc827",
             "actions": [
                 {
-                    "name": "Acceleration",
+                    "name": "RightTrigger",
                     "type": "Button",
                     "id": "ce6d8381-c3c9-49c1-8a6c-8c90e680816c",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Brake",
+                    "name": "LeftTrigger",
                     "type": "Button",
                     "id": "4d25f8cd-e08f-4dde-89aa-843af2a2569a",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Steer",
+                    "name": "Joystick",
                     "type": "Button",
                     "id": "95cb5c38-a060-4340-b9c2-265721ce5e35",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shoot",
+                    "name": "A",
                     "type": "Button",
                     "id": "068e7033-efee-4412-a47d-fff8bd01fc2b",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Handbrake",
+                    "name": "B",
                     "type": "Button",
                     "id": "7f1e62ea-d970-498c-ae30-6ff6f0a516ee",
                     "expectedControlType": "Button",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Start",
                     "type": "Button",
                     "id": "500948eb-9a01-4429-b05d-e17765417434",
                     "expectedControlType": "Button",
@@ -68,7 +68,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acceleration",
+                    "action": "RightTrigger",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -79,7 +79,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acceleration",
+                    "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -90,7 +90,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acceleration",
+                    "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -101,7 +101,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acceleration",
+                    "action": "RightTrigger",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -112,7 +112,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acceleration",
+                    "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -123,7 +123,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acceleration",
+                    "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -134,7 +134,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Steer",
+                    "action": "Joystick",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -145,7 +145,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Steer",
+                    "action": "Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -156,7 +156,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Steer",
+                    "action": "Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -167,7 +167,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Steer",
+                    "action": "Joystick",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -178,7 +178,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Steer",
+                    "action": "Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -189,7 +189,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Steer",
+                    "action": "Joystick",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -200,7 +200,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Shoot",
+                    "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -211,7 +211,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Shoot",
+                    "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -222,7 +222,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Handbrake",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -233,7 +233,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Handbrake",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -244,7 +244,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Brake",
+                    "action": "LeftTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -255,7 +255,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Brake",
+                    "action": "LeftTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -266,7 +266,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Pause",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -277,7 +277,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Pause",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

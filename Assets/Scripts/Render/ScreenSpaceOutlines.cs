@@ -81,6 +81,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         }
 
         [System.Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor) {
             RenderTextureDescriptor normalsTextureDescriptor = cameraTextureDescriptor;
             normalsTextureDescriptor.colorFormat = normalsTextureSettings.colorFormat;
@@ -90,6 +91,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             ConfigureTarget(normals.Identifier());
             ConfigureClear(ClearFlag.All, normalsTextureSettings.backgroundColor);
         }
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) {
             if (!normalsMaterial || !occludersMaterial)
@@ -118,9 +120,11 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         }
 
         [System.Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override void OnCameraCleanup(CommandBuffer cmd) {
             cmd.ReleaseTemporaryRT(normals.id);
         }
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
 
     }
 
@@ -150,6 +154,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         }
 
         [System.Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData) {
             RenderTextureDescriptor temporaryTargetDescriptor = renderingData.cameraData.cameraTargetDescriptor;
             temporaryTargetDescriptor.depthBufferBits = 0;
@@ -158,8 +163,10 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
 
             cameraColorTarget = renderingData.cameraData.renderer.cameraColorTarget;
         }
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
 
         [System.Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) {
             if (!screenSpaceOutlineMaterial)
                 return;
@@ -174,6 +181,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
 
         public override void OnCameraCleanup(CommandBuffer cmd) {
             cmd.ReleaseTemporaryRT(temporaryBufferID);
@@ -192,6 +200,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
     private ScreenSpaceOutlinePass screenSpaceOutlinePass;
 
     [System.Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
     public override void Create() {
         if (renderPassEvent < RenderPassEvent.BeforeRenderingPrePasses)
             renderPassEvent = RenderPassEvent.BeforeRenderingPrePasses;
@@ -199,6 +208,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         viewSpaceNormalsTexturePass = new ViewSpaceNormalsTexturePass(renderPassEvent, outlinesLayerMask, outlinesOccluderLayerMask, viewSpaceNormalsTextureSettings);
         screenSpaceOutlinePass = new ScreenSpaceOutlinePass(renderPassEvent, outlineSettings);
     }
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
         renderer.EnqueuePass(viewSpaceNormalsTexturePass);

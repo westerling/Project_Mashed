@@ -29,12 +29,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Slider m_ProgressBar;
 
+    private int m_CurrentLoadedScene = 0;
+    private float m_TotalSceneProgress;
+    private float m_GameTime = 100f;
+    private bool m_UseGameTimer;
+    private bool m_UseAirStrike = false;
+
     private GameObject m_Car;
     private List<Player> m_ActivePlayers = new List<Player>();
-
-    private float m_TotalSceneProgress;
     private List<AsyncOperation> m_ScenesLoading = new List<AsyncOperation>();
-    private int m_CurrentLoadedScene = 0;
+    
+    private GameState m_GameState;
 
     public List<Player> ActivePlayers 
     {
@@ -62,12 +67,19 @@ public class GameManager : MonoBehaviour
     {
         get => m_Pools; 
     }
+    public GameState GameState 
+    { 
+        get => m_GameState; 
+        set => m_GameState = value; 
+    }
 
     private void Awake()
     {
         Current = this;
 
         SceneManager.LoadSceneAsync((int)SceneIndexes.Title_Screen, LoadSceneMode.Additive);
+
+        GameState = GameState.Menu;
     }
 
     private void OnPlayerJoined(PlayerInput playerInput)
@@ -94,9 +106,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadGame(int levelIndex, GameObject car)
+    public void LoadGame(int levelIndex, GameObject car, int gameLength, bool airStrike)
     {
         Car = car;
+        m_UseGameTimer = gameLength > 0;
+        m_GameTime = Globals.GetGameLength(gameLength);
+        m_UseAirStrike = airStrike;
 
         UIManager.Current.ToggleLoadingScreen(true);
 
@@ -114,6 +129,8 @@ public class GameManager : MonoBehaviour
         m_ScenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Title_Screen, LoadSceneMode.Additive));
 
         StartCoroutine(GetSceneLoadProgress());
+
+        GameState = GameState.Menu;
     }
 
     public IEnumerator GetSceneLoadProgress()

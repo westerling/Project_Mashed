@@ -11,7 +11,17 @@ public class CarConfig
 	[SerializeField]
 	private string m_Description;
 
-	[Header("Steer Settings")]
+	[Header("Durability")]
+    [Range(20, 200)]
+    [SerializeField]
+    private float m_RearDurability = 100f;
+
+    [Range(20, 200)]
+    [SerializeField]
+    private float m_FrontDurability = 100f;
+
+
+    [Header("Steer Settings")]
     [SerializeField]
 	private float m_MaxSteerAngle = 25;
 
@@ -213,5 +223,13 @@ public class CarConfig
     public float Downforce 
 	{
 		get => m_Downforce; 
+	}
+    public float RearDurability 
+	{
+		get => m_RearDurability; 
+	}
+    public float FrontDurability 
+	{
+		get => m_FrontDurability; 
 	}
 }

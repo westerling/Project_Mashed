@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 948194823424512257}
   - component: {fileID: 189493245281870250}
   - component: {fileID: 948194824080524350}
+  - component: {fileID: 2561196594258430071}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &948194823424512257
 MonoBehaviour:
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_Tracks:
   - Ice
   - Parking
+  - Motropolis
   m_Pools:
   - {fileID: 4119954390909980722, guid: 84e2bf15a8f36984a96d54906cbcc277, type: 3}
   - {fileID: 5278005928889250945, guid: 7920c8b88b931774fb9f13d7c177a475, type: 3}
@@ -126,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587dce73946bdae4fbfb0291530359c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PauseMenu: {fileID: 0}
   m_LoadingScreen: {fileID: 0}
   m_RaceGUI: {fileID: 0}
   m_StartLight: {fileID: 0}
@@ -133,4 +136,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_ScoreBoards: []
+  m_ScoreBoards:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &2561196594258430071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948194823424512256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01da4343e0f59fa4fbc35088612e99d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

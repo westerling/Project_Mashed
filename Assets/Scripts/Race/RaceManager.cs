@@ -12,6 +12,7 @@ public class RaceManager : MonoBehaviour
     private Checkpoint[] m_Checkpoints;
     
     private bool m_RaceIsActive = false;
+    private bool m_GameIsPaused = false;
 
     private Checkpoint m_LastCheckpoint;
     private Checkpoint m_NextCheckpoint;
@@ -56,13 +57,17 @@ public class RaceManager : MonoBehaviour
         get => m_RaceIsActive;
         set => m_RaceIsActive = value;
     }
-    
+    public bool GameIsPaused 
+    {
+        get => m_GameIsPaused; 
+        set => m_GameIsPaused = value; 
+    }
     public Dictionary<Player, int> PlayerPoints 
     { 
         get => m_PlayerPoints; 
         set => m_PlayerPoints = value; 
     }
-
+    
     public void DeactivateCar(Car car)
     {
         if (ActiveCars.Contains(car.gameObject))
@@ -86,6 +91,7 @@ public class RaceManager : MonoBehaviour
 
         UIManager.Current.ToggleLoadingScreen(false);
         UIManager.Current.ToggleRaceUI(false);
+        UIManager.Current.TogglePauseMenu(false);
 
         foreach (var pool in GameManager.Current.Pools)
         {

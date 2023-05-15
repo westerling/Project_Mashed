@@ -30,7 +30,7 @@ public class PowerUpManager : MonoBehaviour
     {
         m_InputManager = GetComponentInParent<InputManager>();
 
-        m_InputManager.Shoot += ShootPerformed;
+        m_InputManager.AButton += ShootPerformed;
     }
 
     public bool AddPowerUp(WeaponType weaponType)
@@ -96,6 +96,6 @@ public class PowerUpManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        m_InputManager.Shoot -= ShootPerformed;
+        m_InputManager.AButton -= ShootPerformed;
     }
 }

@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
     public static UIManager Current;
 
     [SerializeField]
+    private GameObject m_PauseMenu;
+
+    [SerializeField]
     private GameObject m_LoadingScreen;
 
     [SerializeField]
@@ -95,6 +98,11 @@ public class UIManager : MonoBehaviour
         {
             m_ScoreBoards[i].SetActive(true);
         }
+    }
+
+    public void TogglePauseMenu(bool active)
+    {
+        m_PauseMenu.SetActive(active);
     }
 
     public void ToggleLoadingScreen(bool active)

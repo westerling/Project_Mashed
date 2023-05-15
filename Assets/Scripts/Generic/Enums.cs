@@ -1,4 +1,10 @@
-﻿public enum wheelPlacement
+﻿public enum GameState
+{
+    Menu = 0,
+    Race = 1
+}
+
+public enum wheelPlacement
 {
     FrontLeft,
     FrontRight,

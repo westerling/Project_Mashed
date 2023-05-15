@@ -40,11 +40,19 @@ public class Mine : Ammunition
 
         foreach (var hit in colliders)
         {
-            var rigidbody = hit.GetComponent<Rigidbody>();
-
-            if (rigidbody != null)
+            if (hit.TryGetComponent(out Car car))
             {
-                rigidbody.AddExplosionForce(m_Power, explosionPos, m_Radius, 10000f);
+                if (hit == car.FrontCollider)
+                {
+                    //
+                }
+
+                if (hit == car.RearCollider)
+                {
+                    //
+                }
+
+                car.Rigidbody.AddExplosionForce(m_Power, explosionPos, m_Radius, 10000f);
             }
         }
         

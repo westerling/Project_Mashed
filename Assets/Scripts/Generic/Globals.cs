@@ -105,6 +105,23 @@ public static class Globals
         return ms * 3.6f;
     }
 
+    public static float GetGameLength(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return 60f;
+            case 1:
+                return 180f;
+            case 2:
+                return 300f;
+            case 3:
+                return 600f;
+        }
+
+        return 300f;
+    }
+
     public static string GetMapName(int index)
     {
         switch (index)

@@ -64,16 +64,16 @@ public class CarController : MonoBehaviour
 
 		private void AddListeners()
 	{
-		m_InputManager.Acceleration += AccelerationPerformed;
-		m_InputManager.HandBrake += HandbrakePerformed;
-		m_InputManager.Steer += SteerPerformed;
+		m_InputManager.RightTrigger += AccelerationPerformed;
+		m_InputManager.BButton += HandbrakePerformed;
+		m_InputManager.Joystick += SteerPerformed;
 	}
 
 	private void RemoveListeners()
 	{
-		m_InputManager.Acceleration -= AccelerationPerformed;
-		m_InputManager.HandBrake -= HandbrakePerformed;
-		m_InputManager.Steer -= SteerPerformed;
+		m_InputManager.RightTrigger -= AccelerationPerformed;
+		m_InputManager.BButton -= HandbrakePerformed;
+		m_InputManager.Joystick -= SteerPerformed;
 	}
 
 	private void Awake()
